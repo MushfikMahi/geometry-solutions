@@ -66,8 +66,8 @@ function calculateEllipseArea() {
 }
 // Parallelogram
 function calculateParallelogramArea() {
-    const base = getInputValue('parallelogram-base');
-    const height = getInputValue('parallelogram-height');
+    const base = inputFields('parallelogram-base');
+    const height = inputFields('parallelogram-height');
     const area = base * height;
-    setInnerTextById('parallelogram-result', area);
+    changeInnerText('parallelogram-result', area);
 }
