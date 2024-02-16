@@ -68,9 +68,9 @@
                       <h2 class="card-title">Parallelogram</h2>
                       <p>Area (A) = b &times; h</p>
                       <div class="w-full">
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="b" id="rectangle-width">
+<input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="b" id="parallelogram-base">
                       <span class="mr-4 ml-2">cm</span>
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="h" id="rectangle-lenth">
+ <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="h" id="parallelogram-height">
                       <span class="mr-4 ml-2">cm</span>
                       </div>
                       <div>
@@ -78,72 +78,6 @@
                       </div>
                       <div class="card-actions w-full">
                         <button onclick="calculateParallelogramArea()" class="btn btn-primary w-full">Calculate</button>
-                      </div>
-                    </div>
-                  </div>
-                <!-- triangle -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                      <img src="images/rectangle.png" alt="Rectangle" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body items-center text-center">
-                      <h2 class="card-title">Rectangle</h2>
-                      <p>Area (A) = w &times; l</p>
-                      <div class="w-full">
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="w" id="rectangle-width">
-                      <span class="mr-4 ml-2">cm</span>
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="l" id="rectangle-lenth">
-                      <span class="mr-4 ml-2">cm</span>
-                      </div>
-                      <div>
-                        <p class="text-2xl">Area: <span id="rectangle-result">0</span> <span>cm<sup>2</sup> </span></p>
-                      </div>
-                      <div class="card-actions w-full">
-                        <button onclick="calculateRectangleArea()" class="btn btn-primary w-full">Calculate</button>
-                      </div>
-                    </div>
-                  </div>
-                <!-- triangle -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                      <img src="images/rectangle.png" alt="Rectangle" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body items-center text-center">
-                      <h2 class="card-title">Rectangle</h2>
-                      <p>Area (A) = w &times; l</p>
-                      <div class="w-full">
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="w" id="rectangle-width">
-                      <span class="mr-4 ml-2">cm</span>
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="l" id="rectangle-lenth">
-                      <span class="mr-4 ml-2">cm</span>
-                      </div>
-                      <div>
-                        <p class="text-2xl">Area: <span id="rectangle-result">0</span> <span>cm<sup>2</sup> </span></p>
-                      </div>
-                      <div class="card-actions w-full">
-                        <button onclick="calculateRectangleArea()" class="btn btn-primary w-full">Calculate</button>
-                      </div>
-                    </div>
-                  </div>
-                <!-- triangle -->
-                <div class="card bg-base-100 shadow-xl">
-                    <figure class="px-10 pt-10">
-                      <img src="images/rectangle.png" alt="Rectangle" class="rounded-xl" />
-                    </figure>
-                    <div class="card-body items-center text-center">
-                      <h2 class="card-title">Rectangle</h2>
-                      <p>Area (A) = w &times; l</p>
-                      <div class="w-full">
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="w" id="rectangle-width">
-                      <span class="mr-4 ml-2">cm</span>
-                      <input type="text" class="w-24 text-2xl p-2 rounded-sm" placeholder="l" id="rectangle-lenth">
-                      <span class="mr-4 ml-2">cm</span>
-                      </div>
-                      <div>
-                        <p class="text-2xl">Area: <span id="rectangle-result">0</span> <span>cm<sup>2</sup> </span></p>
-                      </div>
-                      <div class="card-actions w-full">
-                        <button onclick="calculateRectangleArea()" class="btn btn-primary w-full">Calculate</button>
                       </div>
                     </div>
                   </div>
@@ -155,6 +89,8 @@
         </div>
     </main>
     <script>
+      
+
         function calculateTriangleArea(){
             const baseInput = document.getElementById('triangle-base');
             const baseText = baseInput.value;
@@ -187,23 +123,26 @@
         //     baseInput.value = '';
         //     heightInput.value = '';
         }
-        function calculateParallelogramArea(){
-            const widthInput = document.getElementById('rectangle-width');
-            const widhtText = widthInput.value;
-            const width = parseFloat(widhtText)
 
-            const lenthInput = document.getElementById('rectangle-lenth');
-            const lenthText = lenthInput.value;
-            const lenth = parseFloat(lenthText)
-            
-            const rectangle = width * lenth;
 
-            const rectangleResul = document.getElementById('rectangle-result');
-            rectangleResul.innerText = rectangle;
-        //     baseInput.value = '';
-        //     heightInput.value = '';
+        function getInputValue(inputFieldById){
+          const inputField = document.getElementById(inputFieldById);
+          const inputText = inputField.value;
+          const values = parseFloat(inputText)
+          return values;
         }
-    
+        function setInnerTextById(elementId, area){
+          const resultReplation = document.getElementById(elementId);
+          resultReplation.innerText = area
+        }
+        function calculateParallelogramArea(){
+          const base = getInputValue('parallelogram-base');
+          const height = getInputValue('parallelogram-height');
+          const area = base * height;
+          setInnerTextById('parallelogram-result' , area);
+        }
+
+        
     </script>
 </body>
 </html>
